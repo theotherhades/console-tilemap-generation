@@ -4,6 +4,7 @@ An experiment on generating game maps in the console, using python.
 
 ## Usage
 **Basic usage**
+
 *Generates a 15x10 map and prints it to the console.*
 ```
 import generator
