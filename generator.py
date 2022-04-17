@@ -5,6 +5,40 @@ def load_map(map):
     for tile in map:
         print(tile['type'], end = '')
 
+    seed = ''
+    for tile in map:
+        if tile['type'] == '\n':
+            seed += '0'
+        elif tile['type'] == tiles.blank:
+            seed += '1'
+        elif tile['type'] == tiles.grass:
+            seed += '2'
+        elif tile['type'] == tiles.water:
+            seed += '3'
+
+    return seed
+
+def load_map_from_seed(seed):
+    '''
+    Loads a map from a given seed
+    '''
+    map = []
+    for char in seed:
+        if char == '0':
+            tile_data = {'type': '\n'}
+        elif char == '1':
+            tile_data = {'type': tiles.blank}
+        elif char == '2':
+            tile_data = {'type': tiles.grass}
+        elif char == '3':
+            tile_data = {'type': tiles.water}
+        else:
+            tile_data = {'type': '??'}
+
+        map.append(tile_data)
+    
+    load_map(map)
+
 def new_map(rows = 10, columns = 15):
     map = []
     for row in range(rows):
