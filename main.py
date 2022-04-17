@@ -12,5 +12,9 @@ while True:
         break
 
 while True:
-    load = input('Paste a seed you want to load: ')
-    generator.load_map_from_seed(load)
+    load = input('Paste a seed you want to load (or type \"quit\" to quit): ')
+
+    if load != 'quit':
+        generator.load_map_from_seed(load)
+    else:
+        break # I WILL BREAK YOU
